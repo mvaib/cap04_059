@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 20px;
+            margin-top: 10%;
+            margin-left: 20%;
+            width: 60%;
+            height: 400px;
+            /* margin: auto; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-evenly;
+            background-image:url(https://i.pinimg.com/originals/8c/43/64/8c43645fe8d0ac164a6925448be32858.jpg);
+        }
+        .input{
+            /* border: 2px solid blue; */
+            width: 80%;
+            height: 20%;
+            margin-top: -50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            justify-content: space-evenly;
+        }
+        .input>input{
+            width: 40%;
+            height: 70%;
+            font-size: 20px;
+            color: white;
+            background: rgb(14, 13, 13);
+            border-radius: 10px;
+        }
+        .button{
+            /* border: 2px solid blue; */
+            width: 80%;
+            height: 20%;
+            display: flex;
+            margin-top: -60px;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        .button>button{
+            height: 100%;
+            width: 20%;
+            background: rgb(14, 14, 14);
+            color: white;
+            font-size: 15px;
+            border-radius: 40px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="input">
+            <input type="number" id="inp1" placeholder="enter 1st Number">
+            <input type="number" id="inp2" placeholder="enter 2nd Number">
+        </div>
+        <div class="button">
+            <button onclick="add()">Add</button>
+            <button onclick="sub()">Subtract</button>
+            <button onclick="mul()">Multiply</button>
+            <button onclick="div()">Divide</button>
+        </div>
+    </div>
+</body>
+<script>
+    let num1 = document.getElementById("inp1")
+    let num2 = document.getElementById("inp2")
+    function add(){
+        let addsum = Number(num1.value) + Number(num2.value)
+        alert(`Addition of ${num1.value} + ${num2.value} = ${addsum}`)
+    }
+    function sub(){
+        let addsum = Number(num1.value) - Number(num2.value)
+        alert(`Subtraction of ${num1.value} - ${num2.value} = ${addsum}`)
+    }
+    function mul(){
+        let addsum = Number(num1.value) * Number(num2.value)
+        alert(`Multiplication of ${num1.value} * ${num2.value} = ${addsum}`)
+    }
+    function div(){
+        let addsum = Number(num1.value) / Number(num2.value)
+        alert(`Division of ${num1.value} / ${num2.value} = ${addsum}`)
+    }
+</script>
+</html>
