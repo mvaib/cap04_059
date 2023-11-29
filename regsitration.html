@@ -24,7 +24,10 @@
 	<button onclick="showMobile()">MOBILE</button>
 	<button onclick="resetForm()">RESET FORM</button>
 	<button onclick="resetDisplay()">RESET DISPLAY</button>
-	<script type="text/javascript">
+</body>
+</html>
+
+<script type="text/javascript">
         let inp1 = document.getElementById("name")
         let select = document.getElementById("gender")
         let inp2 = document.getElementById("email")
@@ -36,32 +39,38 @@
         
 		function showName() {
 			// Show filled name inside h1
-            Name.innerText = inp1.value
+            Name.innerText = `NAME : ${inp1.value}`
 		}
 
 		function showGender() {
 			// Show the selected gender inside h2
-            Gender.innerText = select.value
+            Gender.innerText = `GENDER : ${select.value}`
 		}
 
 		function showEmail() {
 			// Show the filled email inside h3
-            Email.innerText = inp2.value
+            Email.innerText = `EMAIL : ${inp2.value}`
 		}
 
 		function showMobile() {
 			// Show the filled mobile inside h4
-            Mobile.innerText = inp3.value
+            Mobile.innerText = `MOBILE : ${inp3.value}`
 		}
 
 		function resetForm() {
 			// Reset all the form elements to default values (blank "")
+			inp1.value = ""
+			inp2.value = ""
+			inp3.value = ""
+			select.value = ""
             
 		}
 
 		function resetDisplay() {
 			// Reset all the headings (h1, h2, h3, h4) to blank values
+			Name.innerText = "NAME"
+			Gender.innerText = "GENDER"
+			Email.innerText = "EMAIL"
+			Mobile.innerText = "MOBILE"
 		}
-	</script>
-</body>
-</html>
+</script>
