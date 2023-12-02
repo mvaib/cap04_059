@@ -1,0 +1,113 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: fit-content;
+    margin: auto;
+}
+h1{
+    color: rgb(26, 152, 139);
+    font-size: 50px;
+    text-align: center;
+}
+#calculator>div{
+    /* border: 2px solid green; */
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bolder;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+#calculator{
+    /* border: 2px solid red; */
+    height: 450px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(17, 20%);
+    grid-template-rows: repeat(17,70px);
+    grid-template-areas: 
+     "b1 b1 b1 b1"
+     "b2 b3 b4 b5"
+     "b6 b7 b8 b9"
+     "b10 b11 b12 b13"
+     "b14 b15 b16 b17";
+    gap: 8px;
+    padding-left: 50px;
+    padding-top: 60px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     
+}
+.box1{
+    border: 2px solid blue;
+    grid-area: b1;
+    margin-top: -8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.box2{
+    grid-area: b2;
+}
+.box3{
+    grid-area: b3;
+}
+.box4{
+    grid-area: b4;
+}   
+.box5{
+    grid-area: b5;
+    background-color: black;
+    color: white;
+
+}
+.box6{
+    grid-area: b6;
+}
+.box7{
+    grid-area: b7;
+}
+.box8{
+    grid-area: b8;
+}
+.box9{
+    grid-area: b9;
+    background-color: black;
+    color: white;
+}
+.box10{
+    grid-area: b10;
+}
+.box11{
+    grid-area: b11;
+}
+.box12{
+    grid-area: b12;
+}
+.box13{
+    grid-area: b13;
+    background-color: black;
+    color: white;
+}
+.box14{
+    grid-area: b14;
+    background-color: red;
+    color: white;
+}
+.box15{
+    grid-area: b15;
+}
+.box16{
+    grid-area: b16;
+    background-color: black;
+    color: white;
+}
+.box17{
+    grid-area: b17;
+    background-color: black;
+    color: white;
+}

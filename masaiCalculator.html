@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masai Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="calculator">
+        <div class="box1"></div>
+        <div class="box2">1</div>
+        <div class="box3">2</div>
+        <div class="box4">3</div>
+        <div class="box5">+</div>
+        <div class="box6">4</div>
+        <div class="box7">5</div>
+        <div class="box8">6</div>
+        <div class="box9">-</div>
+        <div class="box10">7</div>
+        <div class="box11">8</div>
+        <div class="box12">9</div>
+        <div class="box13">x</div>
+        <div class="box14">AC</div>
+        <div class="box15">0</div>
+        <div class="box16">=</div>
+        <div class="box17">/</div>
+    </div>
+</body>
+</html>
+
+<script>
+    let keypad = document.querySelectorAll(".box2,.box3,.box4,.box6,.box7,.box8,.box10,.box11,.box12,.box15")
+    let operators = document.querySelectorAll(".box5,.box9,.box13,.box17")
+    let display = document.querySelector(".box1")
+    let equalTo = document.querySelector(".box16")
+    let Clear = document.querySelector(".box14")
+
+    let firstNumber = "";
+    let isFirstNumber = true;
+    let secondNumber = "";
+    let storeOperator = "";
+    let defaultValue = 0;
+
+    display.innerText = defaultValue
+
+    for(let i = 0; i < keypad.length; i++){
+        keypad[i].addEventListener("click",function()
+        {
+            Clear.innerText = "C"
+            if(isFirstNumber === true){
+                firstNumber+= keypad[i].innerText;
+                display.innerText = firstNumber
+            }
+            else{
+                secondNumber+= keypad[i].innerText;
+                display.innerText = secondNumber
+            }
+        })
+        
+    }
+    for(let i = 0; i < operators.length;i++){
+        operators[i].addEventListener("click",function()
+        {
+            isFirstNumber = false
+            storeOperator = operators[i].innerText
+            // display.innerText = calculate(firstNumber,secondNumber,storeOperator)
+            // firstNumber = calculate(firstNumber,secondNumber,storeOperator)
+            // secondNumber = ""
+
+        })
+    }
+
+    function calculate(firstNumber,secondNumber,storeOperator){
+        switch(storeOperator){
+            case "+":
+                return (Number(firstNumber) + Number(secondNumber))
+            case "-":
+                return (Number(firstNumber) - Number(secondNumber))
+            case "x":
+                return (Number(firstNumber) * Number(secondNumber))
+            case "/":
+                return (Number(firstNumber) / Number(secondNumber))
+        }
+    }
+
+    equalTo.addEventListener("click",function()
+    {
+        display.innerText = calculate(firstNumber,secondNumber,storeOperator)
+        firstNumber = calculate(firstNumber,secondNumber,storeOperator)
+        secondNumber = ""
+        console.log(firstNumber)
+
+    })
+
+    Clear.addEventListener("click",function()
+    {
+        firstNumber = "";
+        secondNumber = "";
+        isFirstNumber = true;
+        display.innerText = defaultValue
+        Clear.innerText = "AC"
+    })
+</script>
