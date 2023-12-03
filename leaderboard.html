@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeaderBoard</title>
+    <link rel="stylesheet" href="leaderboard-style.css">
+</head>
+<body>
+    <div id="display">
+        <div class="min">
+            <h1 class="score">43</h1>
+            <h2 class="text">MIN</h2>
+        </div>
+        <div class="max">
+            <h1 class="score">2019</h1>
+            <h2 class="text">MAX</h2>
+        </div>
+    </div>
+    <div id="number">
+        <div class="box1">
+            <h2>SCORE</h2>
+            <div id="scoreDisplay">
+                <h1></h1>
+            </div>
+        </div>
+        <div class="box2">
+            <button class="green">1</button>
+            <button class="orange">2</button>
+            <button class="green">3</button>
+            <button class="orange">4</button>
+            <button class="orange">5</button>
+            <button class="orange">6</button>
+            <button class="green">7</button>
+            <button class="orange">8</button>
+            <button class="green">9</button>
+        </div>
+    </div>
+    <div id="enter">
+        <button class="No">0</button>
+        <button id="submit">ENTER</button>
+    </div>
+</body>
+</html>
+
+<script>
+    let Display = document.getElementById("scoreDisplay")
+    let keypad = document.querySelectorAll(".box2 > button,.No")
+    let Submit = document.getElementById("submit")
+    let Min = document.querySelector(".min > h1")
+    let Max = document.querySelector(".max > h1")
+
+    let defaultValue = "#"
+    let number = ""
+    let minstore = ""
+    let maxstore  = ""
+
+    Display.innerText = defaultValue
+
+    for(let i = 0; i < keypad.length; i++){
+        keypad[i].addEventListener("click",function()
+        {
+            number+= keypad[i].innerText
+            Display.innerText = number
+        })
+    }
+    Submit.addEventListener("click",function()
+    {
+
+        if(Number(Min.innerText) > Number(number)){
+            minstore = number
+            Min.innerText = number
+        }
+        else if(Number(Max.innerText) < Number(number)){
+            maxstore = number
+            Max.innerText = maxstore
+        }
+        Display.innerText = defaultValue
+        number = ""
+
+    })
+    
+</script>
