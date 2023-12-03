@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="BMI-Style.css">
+</head>
+<body>
+    <div id="BMI-Calculator">
+        <h1>Check your BMI</h1>
+        <h2>Enter your weight and height below to check your BMI results</h2>
+        <h2>Put your weight in here (KG)</h2>
+        <input type="number"  id="weight" placeholder=" Enter weight in kg">
+        <h2>And your height in here (CM)</h2>
+        <input type="number"  id="height" placeholder="Enter height in cm">
+        <button>Calculate BMI</button>
+        <h2 id="Display"></h2>
+    </div>
+</body>
+</html>
+
+<script>
+    let Weight = document.getElementById("weight")
+    let Height = document.getElementById("height")
+    let Calculate = document.querySelector("button")
+    let output = document.getElementById("Display")
+
+    Calculate.addEventListener("click",function()
+    {
+        let toMeter = Height.value * 0.01 
+        let BMI = (Weight.value) / (toMeter * toMeter)
+        let fixed = BMI.toFixed(1);
+
+        if(Number(fixed) <= 18.4){
+            output.innerText = `Your BMI is ${Number(fixed)} which means You are Under Weight`
+        }
+        else if(Number(fixed) >=18.5 && Number(fixed) <= 24.9){
+            output.innerText = `Your BMI is ${Number(fixed)} which means You are Normal Weight`
+        }
+        else if(Number(fixed) >=25 && Number(fixed) <= 29.9){
+            output.innerText = `Your BMI is ${Number(fixed)} which means You are Over Weight`
+        }
+        else if(Number(fixed) >=30){
+            output.innerText = `Your BMI is ${Number(fixed)} which means You are Obese`
+        }
+    })
+</script>
